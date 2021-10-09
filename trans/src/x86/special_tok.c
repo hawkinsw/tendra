@@ -132,6 +132,7 @@ special_asm(tokval *tkv, token t, bitstream pars)
 static bool
 special_asm_sequence(tokval *tkv, token t, bitstream pars)
 {
+  printf("We are in special_asm_sequence!\n");
 	int prp;
 	exp arg1;
 	place old_place;

@@ -2727,6 +2727,7 @@ inject_cond(EXP prev, EXP cond)
 EXP
 make_asm(EXP e, LIST(EXP) args)
 {
+  printf("We are making an asm!\n");
 	STRING s = DEREF_str(exp_string_lit_str(e));
 	if (!IS_NULL_list(args)) {
 		report(crt_loc, ERR_dcl_asm_args());

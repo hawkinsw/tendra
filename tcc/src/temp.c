@@ -87,6 +87,8 @@ temp_mkdir(const char *dir, const char *prefix)
 	char buf[FILENAME_MAX];
 	int l;
 
+  printf("Attempting to make a temporary dir at: %s\n", dir);
+
 	for (l = 0; temp_retry(&l, buf, sizeof buf, dir, prefix); l++) {
 		cmd_env("MKDIR");
 		cmd_string(buf);

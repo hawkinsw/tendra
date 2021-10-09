@@ -207,6 +207,7 @@ LEX_TOKEN(lex_unsigned,            "unsigned",         TOK_SIMPLE_TYPE)
 LEX_TOKEN(lex_void,                "void",             TOK_SIMPLE_TYPE)
 LEX_TOKEN(lex_volatile,            "volatile",         TOK_TYPE_SPEC)
 LEX_TOKEN(lex_while,               "while",            TOK_STATEMENT)
+LEX_TOKEN(lex_asm,                 "asm",              TOK_ASM)
 
 
 /*
@@ -215,7 +216,6 @@ LEX_TOKEN(lex_while,               "while",            TOK_STATEMENT)
     These tokens describe the additional C++ keywords.
 */
 
-LEX_TOKEN(lex_asm,                 "asm",              TOK_ASM)
 LEX_TOKEN(lex_bool,                "bool",             TOK_SIMPLE_TYPE)
 LEX_TOKEN(lex_catch,               "catch",            TOK_STATEMENT)
 LEX_TOKEN(lex_class,               "class",            TOK_TYPE_KEY)
@@ -503,9 +503,9 @@ LEX_TOKEN(lex_zzzzzz,              "<dummy>",          TOK_NONE)
 #define LAST_DIGRAPH		lex_open_Hsquare_H2
 
 #define FIRST_C_KEYWORD		lex_auto
-#define LAST_C_KEYWORD		lex_while
+#define LAST_C_KEYWORD		lex_asm
 
-#define FIRST_CPP_KEYWORD	lex_asm
+#define FIRST_CPP_KEYWORD	lex_bool
 #define LAST_CPP_KEYWORD	lex_wchar_Ht
 
 #define FIRST_ISO_KEYWORD	lex_and_H2

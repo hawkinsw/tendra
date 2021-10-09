@@ -57,6 +57,8 @@ FILE *tokdef_file;
 void
 add_to_startup(const char *fmt, ...)
 {
+
+  printf(fmt);
 	static char a[FILENAME_MAX];
 	va_list ap;
 
@@ -65,6 +67,7 @@ add_to_startup(const char *fmt, ...)
 	if (startup_file == NULL) {
 		assert(startup_name == NULL);
 
+    printf("Calling temp_fopen!\n");
 		startup_file = temp_fopen(a, sizeof a, STARTUP_NAME, "a");
 		if (startup_file == NULL) {
 			return;
@@ -102,6 +105,7 @@ add_to_endup(const char *fmt, ...)
 	if (endup_file == NULL) {
 		assert(endup_name == NULL);
 
+    printf("I am add_to_endup.\n");
 		endup_file = temp_fopen(a, sizeof a, ENDUP_NAME, "a");
 		if (endup_file == NULL) {
 			return;
@@ -133,6 +137,8 @@ add_to_endup(const char *fmt, ...)
 static void
 add_to_tokdef(const char *fmt, ...)
 {
+
+  printf("I am add_to_tokdef.\n");
 	static char a[FILENAME_MAX];
 	va_list ap;
 
@@ -246,6 +252,7 @@ remove_startup(void)
 void
 add_pragma(const char *s)
 {
+  printf("in add_pragma!\n");
 	char *e;
 	char *level = "warning";
 	static char *start_scope = "#pragma TenDRA begin\n";
@@ -276,6 +283,7 @@ add_pragma(const char *s)
 void
 add_token(const char *s)
 {
+  printf("In add token!\n");
 	char *type = "int";
 	char *defn = "1";
 	char *e = strchr(s, '=');
