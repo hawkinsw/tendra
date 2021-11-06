@@ -2735,5 +2735,6 @@ make_asm(EXP e, LIST(EXP) args)
 	}
 	MAKE_exp_assembler(type_void, s, args, e);
 	report(crt_loc, ERR_dcl_asm_ti());
+  printf("We are (done) making an asm!\n");
 	return e;
 }

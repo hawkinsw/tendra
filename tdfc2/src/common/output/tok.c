@@ -1169,8 +1169,8 @@ enc_token(BITSTREAM *bs, IDENTIFIER id, LIST(TOKEN)args)
 BITSTREAM *
 enc_asm(BITSTREAM *bs, EXP e)
 {
-  printf("Encoding an asm_sequence!\n");
 	STRING op = DEREF_str(exp_assembler_op(e));
+  printf("Encoding an asm_sequence: %s!\n", strlit(DEREF_string(str_simple_text(op))));
 	unsigned long len = DEREF_ulong(str_simple_len(op));
 	if (len) {
 		BITSTREAM *ts, *us;

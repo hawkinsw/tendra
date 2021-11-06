@@ -1647,6 +1647,7 @@ compile_type(IDENTIFIER id)
 void
 compile_asm(EXP e)
 {
+  printf("We are in compile_asm.\n");
 	TYPE t = DEREF_type(exp_type(e));
 	IGNORE make_tagdef(NULL_id, t, e, NULL_exp, 1);
 	return;

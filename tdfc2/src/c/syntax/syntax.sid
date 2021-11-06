@@ -1470,6 +1470,23 @@ asm-definition : () -> ( e : EXP ) = {
 	semicolon-x ;
 } ;
 
+/*
+    ASM FUNCTION ATTRIBUTES
+
+    This rule describes asm function attributes. These consist of 'asm' followed
+    by a bracketed string literal.
+*/
+asm-function-attributes : () -> ( e : EXP ) = {
+	asm ; open-round ;
+	a = string-literal ;
+	{
+		comma ; p = expression-list ;
+	    ||	p = <list_exp_null> ;
+	} ;
+	e = <declare_asm> ( a, p ) ;
+	close-round ;
+} ;
+
 
 /*
     STATEMENTS
@@ -2464,10 +2481,18 @@ external-declaration : () -> ( e : EXP ) = {
 			$ ;
 		} ;
 		semicolon ;
+		  ||
+		asm = asm-function-attributes ;
+		semicolon ;
 	    ||
 		? = <is_function> ( s ) ;
 		d = <define_func> ( ds, s, id ) ;
 		b = <function_begin> ( d ) ;
+		{
+			asm = asm-function-attributes ;
+			||
+			asm = <exp_none> ;
+		} ;
 		a = function-body ;
 		<function_end> ( d, a, b ) ;
 		<rescan_token> ;

@@ -1145,6 +1145,7 @@ complex-type : () -> ( t ) = @{
 */
 
 <declare_id> : ( ds, bt, t, id ) -> ( d ) = @{
+    printf("In declare_id\n");
     if ( in_weak_param ) {
 	@d = make_param_decl ( @ds, @t, @id, CONTEXT_WEAK_PARAM ) ;
     } else if ( type_tag ( @t ) == type_func_tag ) {
@@ -1164,12 +1165,14 @@ complex-type : () -> ( t ) = @{
 @} ;
 
 <define_func> : ( ds, t, id ) -> ( d ) = @{
+    printf("In define_func\n");
     @d = make_func_decl ( @ds, @t, @id, 1 ) ;
     have_type_declaration = TYPE_DECL_NONE ;
     have_func_declarator = 0 ;
 @} ;
 
 <declare_id_empty> : ( ds, bt, t, cv ) -> () = @{
+    printf("In define_func\n");
     IGNORE empty_decl ( @ds, NULL_type, @bt, @t, @cv, last_lex_token, 0 ) ;
     have_type_declaration = TYPE_DECL_NONE ;
     have_func_declarator = 0 ;

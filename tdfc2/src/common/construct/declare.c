@@ -2710,6 +2710,7 @@ IDENTIFIER
 empty_decl(DECL_SPEC ds, TYPE q, BASE_TYPE bt, TYPE t, CV_SPEC cv, int tok,
 	   int mem)
 {
+	printf("I am in empty_decl.\n");
 	/* Check for empty declarations */
 	IDENTIFIER id;
 	int have_specifier = 1;
@@ -2780,6 +2781,7 @@ empty_decl(DECL_SPEC ds, TYPE q, BASE_TYPE bt, TYPE t, CV_SPEC cv, int tok,
 		/* Shouldn't happen in parameter declaration lists */
 		report(crt_loc, ERR_dcl_fct_par_none());
 	}
+
 	return id;
 }
 
@@ -2794,6 +2796,9 @@ empty_decl(DECL_SPEC ds, TYPE q, BASE_TYPE bt, TYPE t, CV_SPEC cv, int tok,
 void
 external_declaration(EXP e, int d)
 {
+
+	printf("I am in external_declaration.\n");
+
 	if (crt_file_type == 0) {
 		no_declarations += (unsigned long)d;
 	}
